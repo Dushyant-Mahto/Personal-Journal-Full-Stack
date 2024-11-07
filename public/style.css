@@ -1,52 +1,73 @@
-/* General Reset */
 * {
     box-sizing: border-box;
 }
 
 body {
     font-family: 'Roboto', sans-serif;
-    background: linear-gradient(135deg, #f3f4f6 0%, #e0e7ff 100%);
-    color: #333;
+    background-color: #1e1e1e;
+    color: #f0f0f0;
     margin: 0;
     padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    min-height: 100vh;
 }
 
-.container {
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    padding: 40px;
-    width: 90%;
+.app-container {
     max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: #2c2c2c;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.5);
 }
 
-h1 {
+header {
     text-align: center;
-    color: #4A90E2;
     margin-bottom: 20px;
-    font-size: 2.5em;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.tab-button {
+    background-color: #4A90E2;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 10px; /* Space between buttons */
+}
+
+.tab-button:hover {
+    background-color: #357ABD;
+}
+
+.tab-button.active {
+    background-color: #357ABD; /* Active button color */
+}
+
+
+#entryForm {
+    margin-bottom: 20px;
 }
 
 input, textarea {
     width: 100%;
     border-radius: 8px;
-    border: 1px solid #ccc;
+    border: 1px solid #444;
     padding: 15px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    background-color: #3c3c3c;
+    color: #fff;
     transition: border-color 0.3s ease;
-    font-size: 16px;
-    font-family: 'Arial', sans-serif;
-    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 input:focus, textarea:focus {
     border-color: #4A90E2;
     outline: none;
-    box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
 }
 
 button {
@@ -56,71 +77,80 @@ button {
     border-radius: 8px;
     padding: 12px 20px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    font-size: 16px;
-    font-weight: bold;
+    transition: background-color 0.3s ease;
+    width: 100%;
 }
 
 button:hover {
     background-color: #357ABD;
-    transform: scale(1.05);
 }
 
-button:focus {
-    outline: none;
-}
-
-.search {
-    margin: 30px 0;
-    display: flex;
-    gap: 10px;
-    justify-content: space-between;
-}
-
-.search input {
-    flex-grow: 1;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
+.entry-list {
     margin-top: 20px;
 }
 
-li {
-    background: linear-gradient(105deg, #f0f0f0 0%, #ffffff 100%);
-    margin: 10px 0;
-    padding: 20px;
-    border-radius: 8px;
+.entry-card {
+    background-color: #3d3d3d;
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease;
+    flex-direction: column;  /* Arrange items in a column */
+    position: relative;      /* Position context for the delete button */
 }
 
-li:hover {
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+.tags {
+    margin-top: 10px;        /* Adds space above tags */
+    font-size: 14px;         /* Optional: Adjust the font size */
+    color: #A7A7A7;          /* Optional: Change tag color for distinction */
 }
 
-button.delete {
-    background-color: #e74c3c;
+.entry-card h3 {
+    margin: 0;
+}
+
+.entry-card p {
+    margin: 5px 0;
+}
+
+.delete-button {
+    background-color: #e74c3c;       /* Button color */
+    border: none;
     border-radius: 8px;
-    padding: 8px 12px;
+    padding: 10px 15px;              /* Padding for the button */
+    color: white;
+    cursor: pointer;
+    position: absolute;               /* Position the button absolutely */
+    right: 15px;                     /* Align to the right */
+    bottom: 15px;                    /* Space from the bottom */
     transition: background-color 0.3s ease;
+    width: 80px;                     /* Fixed width for uniformity */
+    text-align: center;              /* Align text to center */
 }
 
-button.delete:hover {
-    background-color: #c0392b;
+.delete-button:hover {
+    background-color: #c0392b;       /* Darker red on hover */
 }
 
-/* Responsive Styles */
-@media (max-width: 600px) {
-    .search {
-        flex-direction: column;
-    }
-    
-    .search input {
-        width: 100%;
-    }
+#searchSection {
+    margin-top: 20px;
+}
+
+#searchSection input {
+    margin-bottom: 10px;
+}
+
+#searchButton {
+    background-color: #3db5c8; /* Change this to your desired color */
+    color: white;              /* Text color */
+    border: none;              /* No border */
+    border-radius: 8px;       /* Rounded corners */
+    padding: 10px 15px;       /* Padding for size */
+    cursor: pointer;           /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Transition for smooth hover effect */
+}
+
+#searchButton:hover {
+    background-color: #3db5c8; /* Color on hover */
 }

@@ -3,19 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Journal</title>
+    <title>My Journal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Personal Journal</h1>
-        <div class="entry-form">
-            <input type="text" id="titleInput" placeholder="Entry Title">
-            <textarea id="contentInput" placeholder="Write your journal entry..."></textarea>
+    <div class="app-container">
+        <header>
+            <h1>My Journal</h1>
+            <p>Hi, User!</p>
+        </header>
+        <nav>
+            <button class="tab-button active" onclick="loadAllEntries()">All</button>
+            <button class="tab-button" onclick="loadImportantEntries()">Important</button>
+            <button class="tab-button" onclick="loadBookmarkedEntries()">Bookmarked</button>
+        </nav>
+        <div id="entryForm">
+            <input type="text" id="titleInput" placeholder="Entry Title" required>
+            <textarea id="contentInput" placeholder="Write your journal entry..." required></textarea>
             <input type="text" id="tagsInput" placeholder="Tags (comma separated)">
             <button onclick="addEntry()">Add Entry</button>
         </div>
-        <div class="search">
+        <div id="entryList" class="entry-list"></div>
+        <button id="searchButton" onclick="toggleSearchSection()">Search</button>
+        <div id="searchSection" style="display: none;">
             <input type="text" id="searchTag" placeholder="Search by tag">
             <input type="text" id="searchKeyword" placeholder="Search by keyword">
             <button onclick="searchEntries()">Search</button>
