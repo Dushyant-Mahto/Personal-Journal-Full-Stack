@@ -30,14 +30,28 @@ router.delete('/entries/:id', async (req, res) => {
 // Search entries by tag or keyword
 router.get('/entries/search', async (req, res) => {
     const { query } = req;
-    const entries = await Entry.find({
-        $or: [
-            { tags: { $in: [query.tag] } },
-            { title: { $regex: query.keyword, $options: 'i' } },
-            { content: { $regex: query.keyword, $options: 'i' } },
-        ],
-    });
+    const searchConditions = [];
+
+    if (query.tag) {
+        searchConditions.push({ tags: { $in: [query.tag] } });
+    }
+
+    if (query.keyword) {
+        searchConditions.push({
+            $or: [
+                { title: { $regex: query.keyword, $options: 'i' } },
+                { content: { $regex: query.keyword, $options: 'i' } },
+            ],
+        });
+    }
+
+    // If there are search conditions, use them; otherwise, return an empty array
+    const entries = searchConditions.length > 0
+        ? await Entry.find({ $or: searchConditions })
+        : [];
+
     res.send(entries);
 });
+
 
 module.exports = router;
