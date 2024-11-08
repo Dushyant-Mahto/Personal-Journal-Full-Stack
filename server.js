@@ -13,7 +13,6 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(express.static('public'));
 
-// Connect to MongoDB
 mongoose.connect(dbConfig.dbURI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -21,7 +20,6 @@ mongoose.connect(dbConfig.dbURI, {
 .then(() => console.log('MongoDB connected...'))
 .catch(err => console.error('MongoDB connection error:', err));
 
-// Routes
 app.use('/api', entryRoutes);
 
 app.listen(PORT, () => {
