@@ -1,4 +1,4 @@
-let currentFilter = 'all'; // Default filter
+let currentFilter = 'all'; 
 
 async function addEntry() {
     const titleInput = document.getElementById('titleInput');
@@ -27,7 +27,6 @@ async function addEntry() {
     loadEntries(currentFilter);
 }
 
-// Function to load entries based on the selected filter
 async function loadEntries(filter) {
     currentFilter = filter;
     const response = await fetch(`http://localhost:5000/api/entries`);
@@ -55,7 +54,6 @@ async function loadEntries(filter) {
     document.querySelector(`.tab-button[onclick="loadEntries('${filter}')"]`).classList.add('active');
 }
 
-// Existing delete function remains the same
 async function deleteEntry(entryId) {
     if (confirm("Are you sure you want to delete this entry?")) {
         await fetch(`http://localhost:5000/api/entries/${entryId}`, {
@@ -95,11 +93,9 @@ async function searchEntries() {
     });
 }
 
-// Function to toggle search visibility
 function toggleSearchSection() {
     const searchSection = document.getElementById('searchSection');
     searchSection.style.display = searchSection.style.display === 'none' ? 'block' : 'none';
 }
 
-// Load entries on page load
 window.onload = loadAllEntries;
