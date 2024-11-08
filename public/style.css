@@ -12,7 +12,7 @@ body {
 
 h1 {
     text-align: center;
-    color: #000; /* Base color for text */
+    color: #000;
     margin-bottom: 20px;
     font-size: 3.5em;
     font-family: 'Bebas Neue', sans-serif;
@@ -78,7 +78,7 @@ nav {
     padding: 10px 20px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-right: 10px; /* Space between buttons */
+    margin-right: 10px; 
 }
 
 .tab-button:hover {
@@ -86,7 +86,7 @@ nav {
 }
 
 .tab-button.active {
-    background-color: #357ABD; /* Active button color */
+    background-color: #357ABD; 
 }
 
 
@@ -136,14 +136,14 @@ button:hover {
     margin-bottom: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     display: flex;
-    flex-direction: column;  /* Arrange items in a column */
-    position: relative;      /* Position context for the delete button */
+    flex-direction: column;
+    position: relative;     
 }
 
 .tags {
-    margin-top: 10px;        /* Adds space above tags */
-    font-size: 14px;         /* Optional: Adjust the font size */
-    color: #A7A7A7;          /* Optional: Change tag color for distinction */
+    margin-top: 10px;       
+    font-size: 14px;       
+    color: #A7A7A7;     
 }
 
 .entry-card h3 {
@@ -155,22 +155,22 @@ button:hover {
 }
 
 .delete-button {
-    background-color: #e74c3c;       /* Button color */
+    background-color: #e74c3c;      
     border: none;
     border-radius: 8px;
-    padding: 10px 15px;              /* Padding for the button */
+    padding: 10px 15px;          
     color: white;
     cursor: pointer;
-    position: absolute;               /* Position the button absolutely */
-    right: 15px;                     /* Align to the right */
-    bottom: 15px;                    /* Space from the bottom */
+    position: absolute;   
+    right: 15px;   
+    bottom: 15px;  
     transition: background-color 0.3s ease;
-    width: 80px;                     /* Fixed width for uniformity */
-    text-align: center;              /* Align text to center */
+    width: 80px; 
+    text-align: center;      
 }
 
 .delete-button:hover {
-    background-color: #c0392b;       /* Darker red on hover */
+    background-color: #c0392b;    
 }
 
 #searchSection {
@@ -182,15 +182,15 @@ button:hover {
 }
 
 #searchButton {
-    background-color: #3db5c8; /* Change this to your desired color */
-    color: white;              /* Text color */
-    border: none;              /* No border */
-    border-radius: 8px;       /* Rounded corners */
-    padding: 10px 15px;       /* Padding for size */
-    cursor: pointer;           /* Pointer cursor on hover */
-    transition: background-color 0.3s ease; /* Transition for smooth hover effect */
+    background-color: #3db5c8;
+    color: white;  
+    border: none;
+    border-radius: 8px;    
+    padding: 10px 15px;   
+    cursor: pointer;         
+    transition: background-color 0.3s ease;
 }
 
 #searchButton:hover {
-    background-color: #3db5c8; /* Color on hover */
+    background-color: #3db5c8;
 }
